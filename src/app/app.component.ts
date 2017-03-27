@@ -7,4 +7,8 @@
 })
 export class AppComponent {
 
+    constructor() {
+        
+        
+    }
 }
