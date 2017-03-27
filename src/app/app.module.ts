@@ -1,14 +1,19 @@
-import { BrowserModule } from '@angular/platform-browser';
+﻿import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BeerApiService } from './services/beerapi.service';
+import { BeerListComponent } from './beer-list/beer-list.component';
+import { BeerDetailComponent } from './beer-detail/beer-detail.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BeerListComponent,
+    BeerDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -16,7 +21,7 @@ import { AppComponent } from './app.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ BeerApiService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
