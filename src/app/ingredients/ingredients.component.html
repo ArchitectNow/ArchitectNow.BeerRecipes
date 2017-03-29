@@ -1,0 +1,18 @@
+﻿<h2>Recipe</h2>
+<p>Boil Volume: <app-amount [amount]="beer?.boil_volume"></app-amount></p>
+<h3 *ngIf="beer.brewers_tips">Tips</h3>
+<p *ngIf="beer.brewers_tips">{{ beer?.brewers_tips }}</p>
+<h3>Hops</h3>
+<ul>.
+  <li *ngFor="let hop of beer?.ingredients?.hops;">
+    <app-ingredient-detail [ingredient]="hop"></app-ingredient-detail>
+  </li>
+</ul>
+<h3>Malts</h3>
+<ul>.
+  <li *ngFor="let malt of beer?.ingredients?.malt;">
+    <app-ingredient-detail [ingredient]="malt"></app-ingredient-detail>
+  </li>
+</ul>
+<h3>Yeast</h3>
+<p>{{ beer?.ingredients?.yeast }}</p>

@@ -1,0 +1,1 @@
+﻿<li> {{ ingredient.name }}<span *ngIf="ingredient.amount">:&nbsp;</span> <app-amount *ngIf="ingredient.amount" [amount]="ingredient.amount"></app-amount><span *ngIf="ingredient.add"> add @ {{ ingredient.add }}</span><span *ngIf="ingredient.attribute"> ({{ ingredient.attribute }})</span></li>

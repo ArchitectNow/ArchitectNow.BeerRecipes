@@ -9,7 +9,7 @@ export class Beer {
     tagline: string;
     image_url: string;
     abv: number;
-    brewer_tips: string;
+    brewers_tips: string;
     food_pairing: string[];
     boil_volume: Amount;
     ingredients: Ingredients;

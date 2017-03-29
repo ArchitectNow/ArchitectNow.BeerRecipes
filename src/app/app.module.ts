@@ -8,12 +8,20 @@ import { AppComponent } from './app.component';
 import { BeerApiService } from './services/beerapi.service';
 import { BeerListComponent } from './beer-list/beer-list.component';
 import { BeerDetailComponent } from './beer-detail/beer-detail.component';
+import { IngredientsComponent } from './ingredients/ingredients.component';
+import { IngredientDetailComponent } from './ingredient-detail/ingredient-detail.component';
+import { AmountComponent } from './amount/amount.component';
+import { AngularDemoComponent } from './angulardemo/angulardemo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BeerListComponent,
-    BeerDetailComponent
+    BeerDetailComponent,
+    IngredientsComponent,
+    IngredientDetailComponent,
+    AmountComponent,
+    AngularDemoComponent
   ],
   imports: [
     BrowserModule,

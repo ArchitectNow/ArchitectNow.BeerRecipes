@@ -11,7 +11,7 @@ import { Beer } from '../models/beer';
 })
 export class BeerListComponent implements OnInit {
 
-    title = 'Punked Beers Database';
+    title = 'Kevins beer database';
 
     beers: Beer[];
 
@@ -24,9 +24,10 @@ export class BeerListComponent implements OnInit {
         this.loadBeers();
     }
 
-    private loadBeers() {
+    loadBeers() {
         this.beerApiService.getBeers(this.searchBy).subscribe(data => {
             this.beers = data;
+
         }, error => {
             alert(error);
         }, () => {
