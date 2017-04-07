@@ -11,11 +11,14 @@ import { Beer } from '../models/beer';
 })
 export class BeerListComponent implements OnInit {
 
-    title = 'Kevins beer database';
+    title = "Punk'd Beer Database";
 
     beers: Beer[];
 
     searchBy: string = '';
+
+    isLoading: boolean = false;
+    lastErr: any = null;
 
     constructor(private beerApiService: BeerApiService) {
     }
@@ -25,13 +28,14 @@ export class BeerListComponent implements OnInit {
     }
 
     loadBeers() {
+        this.isLoading = true;
+
         this.beerApiService.getBeers(this.searchBy).subscribe(data => {
             this.beers = data;
-
         }, error => {
-            alert(error);
+            this.lastErr = error;
         }, () => {
-            //finally
+            this.isLoading = false;
         });
     }
 
