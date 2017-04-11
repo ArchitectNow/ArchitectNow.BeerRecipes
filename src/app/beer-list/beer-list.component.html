@@ -1,7 +1,6 @@
 ﻿<h1>
   {{title}}
 </h1>
-<p><a [routerLink]="['/demo']">--Template Demos--</a></p>
 <div>
   Search By: <input type="text" [(ngModel)]="searchBy" /><button (click)="loadBeers()">Search</button>
 </div>
@@ -12,10 +11,8 @@
   </div>
   <div *ngIf="!isLoading">
     <div *ngFor="let beer of beers;">
-      <h3><a [routerLink]="['/beer', beer.id]">{{ beer.name }}</a></h3>
       <hr />
-      <p>{{ beer.description }}</p>
-      <img height="150" width="50" src="{{ beer.image_url}}" />
+      <app-beer-detail [beer]="beer"></app-beer-detail>
     </div>
   </div>
 </div>

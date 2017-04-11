@@ -1,7 +1,7 @@
 ﻿<h1>
   {{ beer.name }}
 </h1>
-<a [routerLink]="['/beers']">-- Back to list --</a><br/><br/>
-<img height="300" width="100" src="{{ beer.image_url}}" />
+<img height="150" width="50" src="{{ beer.image_url}}" />
 <p> {{ beer.description }}</p>
-<app-ingredients [beer]="beer"></app-ingredients>
+<button (click)="showDetail()"><strong>Toggle Details</strong></button>
+<app-ingredients *ngIf="detail" [beer]="beer"></app-ingredients>
