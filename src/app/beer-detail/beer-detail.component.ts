@@ -1,9 +1,5 @@
 ﻿import { Component, OnInit } from '@angular/core';
-import 'rxjs/add/operator/switchMap';
-import { Observable } from 'rxjs/Observable';
-import { Router, Params, ActivatedRoute } from '@angular/router';
-
-
+import { Params, ActivatedRoute } from '@angular/router';
 import { BeerApiService } from '../services/beerapi.service';
 import { Beer } from '../models/beer';
 
@@ -13,21 +9,18 @@ import { Beer } from '../models/beer';
     styleUrls: ['./beer-detail.component.scss']
 })
 export class BeerDetailComponent implements OnInit {
-
-
-    beer: Beer = new Beer();
+    beer = new Beer();
 
     constructor(private beerApiService: BeerApiService,
                 private route: ActivatedRoute) {
-
     }
 
     ngOnInit() {
-        var id: number = 1;
+        const id = 1;
 
         this.route.params
             .subscribe((params: Params) => {
-                if (!this.beer || this.beer.id != id) {
+                if (!this.beer || this.beer.id !== id) {
                     this.loadBeer(+params['id']);
                 }
             });
@@ -39,7 +32,7 @@ export class BeerDetailComponent implements OnInit {
         }, error => {
             alert(error);
         }, () => {
-            //finally
+            // finally
         });
     }
 

@@ -7,28 +7,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AngularDemoComponent {
 
-  nameFirst: string = "Kevin";
+  nameFirst = 'Kevin';
 
-  isActive: boolean = false;
-  isChecked: boolean = false;
+  isActive = false;
+  isChecked = false;
 
-  lastAction: string = "(nothing yet)";
+  lastAction = '(nothing yet)';
+
+  showElements = false;
+
+  states: string[] = [ 'Nebraska', 'Alabama', 'Missouri', 'Montana', 'Florida', 'New York', 'California'];
+
+  selectedState = '';
+
+  inputEvent: string;
+
+  selectedNumber = 2;
 
   clickMe() {
-    this.lastAction = "Div Clicked";
+    this.lastAction = 'Div Clicked';
   }
 
   buttonClicked() {
-    this.lastAction = "Button Clicked";
+    this.lastAction = 'Button Clicked';
   }
-
-  showElements: boolean = false;
-
-  states: string[] = [ "Nebraska", "Alabama", "Missouri", "Montana", "Florida","New York", "California"];
-
-  selectedState: string = "";
-
-  inputEvent: string;
 
   selectState(state: string) {
     this.selectedState = state;
@@ -39,22 +41,18 @@ export class AngularDemoComponent {
       return;
     }
 
-    if (this.states.indexOf(state)<0)
-    {
+    if (this.states.indexOf(state) < 0) {
       this.states.push(state);
     }
   }
 
   deleteState(state: string) {
 
-    if (this.states.indexOf(state)<0)
-    {
+    if (this.states.indexOf(state) < 0) {
       return;
     }
 
-    this.states.splice(this.states.indexOf(state),1);
+    this.states.splice(this.states.indexOf(state), 1);
   }
-
-  selectedNumber: number = 2;
 
 }

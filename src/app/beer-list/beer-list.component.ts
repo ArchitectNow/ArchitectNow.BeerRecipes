@@ -1,6 +1,4 @@
 ﻿import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
-
 import { BeerApiService } from '../services/beerapi.service';
 import { Beer } from '../models/beer';
 
@@ -11,13 +9,13 @@ import { Beer } from '../models/beer';
 })
 export class BeerListComponent implements OnInit {
 
-    title = "Punk'd Beer Database";
+    title = 'Punk\'d Beer Database';
 
     beers: Beer[];
 
-    searchBy: string = '';
+    searchBy = '';
 
-    isLoading: boolean = false;
+    isLoading = false;
     lastErr: any = null;
 
     constructor(private beerApiService: BeerApiService) {

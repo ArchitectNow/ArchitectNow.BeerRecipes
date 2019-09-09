@@ -1,35 +1,31 @@
 ﻿import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-
 import { Beer } from '../models/beer';
-
+import {Observable} from 'rxjs';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable()
 export class BeerApiService {
 
-    private apiRoot: string = 'https://api.punkapi.com/v2/';
+    private apiRoot = 'https://api.punkapi.com/v2/';
 
-    constructor(private http: Http) {
+    constructor(private http: HttpClient) {
 
     }
 
     getBeers(searchBy: string): Observable<Beer[]> {
 
-        var filter = searchBy ? '?beer_name=' + searchBy : '';
+        const filter = searchBy ? '?beer_name=' + searchBy : '';
 
-        return this.http.get(this.apiRoot + 'beers' + filter).map((resp: Response) => <Beer[]>resp.json());
+        return this.http.get<Beer[]>(this.apiRoot + 'beers' + filter);
     }
 
     getBeer(id: number): Observable<Beer> {
-        let headers = new Headers({
-            'Content-Type': 'application/json'
-        });
-
-        var options = new RequestOptions({ headers: headers });
-
-        return this.http.get(this.apiRoot + 'beers/' + id, options).map((resp: Response) => <Beer>resp.json());
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type':  'application/json',
+          // 'Authorization': 'my-auth-token'
+        })
+      };
+        return this.http.get<Beer>(this.apiRoot + 'beers/' + id, httpOptions);
     }
 }

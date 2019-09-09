@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Beer } from '../models/beer';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-ingredients',
