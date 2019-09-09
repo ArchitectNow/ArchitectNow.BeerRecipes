@@ -1,6 +1,7 @@
 ﻿import { TestBed, inject } from '@angular/core/testing';
 
 import { BeerApiService } from './beerapi.service';
+import {HttpClient} from '@angular/common/http';
 
 describe('BeerApiService', () => {
   beforeEach(() => {
@@ -9,7 +10,7 @@ describe('BeerApiService', () => {
     });
   });
 
-  it('should ...', inject([BeerApiService], (service: BeerApiService) => {
+  it('should ...', inject([BeerApiService, HttpClient], (service: BeerApiService) => {
     expect(service).toBeTruthy();
   }));
 });
